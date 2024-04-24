@@ -1,0 +1,12 @@
+FROM ubuntu:latest
+
+RUN apt-get update && apt-get upgrade -y
+RUN apt-get install -y nginx
+
+COPY myapp /var/www/html 
+
+EXPOSE 8080
+CMD [ "nginx","-g","daemon off;" ]
+#default command will be executed when container start in this case nginx server in the foreground in the background
+
+
